@@ -13,6 +13,7 @@ public class Read_XML {
 
         int count = 0;
         int count_text;
+        
         @SuppressWarnings({"unchecked", "null"})
 
 
@@ -57,7 +58,7 @@ public class Read_XML {
             return newString;
         }
 
-        public void parseFile(String file/*, String suche*/) {
+        public void parseFile(String file, String language_family) {
             Database_Writer database = new Database_Writer();
 
             try{
@@ -75,7 +76,7 @@ public class Read_XML {
                         if(title.isCharacters()){
                             String wiki = title.asCharacters().getData();
 
-                            if(wiki.startsWith("Reconstruction:Proto-Germanic")) {
+                            if(wiki.startsWith(language_family)) {
                                 count++;
                                 System.out.println(wiki + " " + count);
                                 String set_wiki =  wiki;
